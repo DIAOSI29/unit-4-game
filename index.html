@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Unit-4-Game</title>
+  </head>
+  <body>
+    <div class="container-fluid text-center d-flex flex-row mt-2">
+      <div
+        class="heading text-center d-flex flex-row p-2 m-3"
+      
+      >
+        <h1
+          class="text-danger align-bottom text-lg font-weight-bold mt-2"
+          style="font-family: 'Orbitron', sans-serif;
+          font-size: 30px;"
+        >
+          Unit 4 Game
+          <span class="badge bg-warning" style="color:white">Tian Qin</span>
+        </h1>
+      </div>
+      <div class="banner d-flex flex-fill justify-content-around mt-3">
+        <p id="bannerText">lorekkjhkm20</p>
+      </div>
+    </div>
+    <div id="gameBody">
+      <div class="row d-flex justify-content-around mt-5">
+        <div class="col-5">
+          <h2 class="mb-2 ml-4">Target</h2>
+        
+          <div id="targetPoints">55</div>
+          
+          <button id="button-red" class="btn btn-danger diamond" value="divide"><span>RED</span></button>  
+          <button id="button-blue" class="btn btn-danger diamond" value="divide"><span>BLUE</span></button>   
+          <button id="button-yellow" class="btn btn-danger diamond" value="divide"><span>YELLOW</span></button>           
+          <button id="button-green" class="btn btn-danger diamond" value="divide"><span>GREEN</span></button>   
+        </div>
+        <div class="col-5" id="resultWindow">
+          <img
+            id="resultImage"
+            src="./Images/cover.jpg"
+            class="img-fluid"
+            alt="Animals Behind The Scene"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div
+        class="col-12 d-flex resultPanel"
+        style="font-family: 'Orbitron', sans-serif;
+      font-size: 30px;"
+      >
+      <div class="winsPanel col-5">
+        <div class="badge badge-danger"><p class="text-lg text-white mt-2" style="width:200px;">WINS:</p></div>
+        <p
+          class=" align-baseline text-danger ml-5"
+          id="wins"
+          style="font-family: 'Orbitron', sans-serif;
+        font-size: 50px;"
+        >
+        123
+        </p>
+      </div>
+      <div class="lossesPanel">
+        <div class="badge badge-danger"><p class="text-lg text-white mt-2" style="width:300px;">LOSSES:</p></div>
+        <p
+        class=" align-baseline text-danger ml-5"
+        id="wins"
+        style="font-family: 'Orbitron', sans-serif;
+      font-size: 50px;"
+      >
+        98
+        </p>
+      </div>
+    </div>
+
+    <script src="./game.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
