@@ -42,6 +42,7 @@ body {
 
 .resultPanel {
   display: grid;
+  padding-top: 30px;
   font-size: 20px;
 }
 .resultPanel p {
@@ -153,7 +154,7 @@ h1 {
 
 .progress {
   position: relative;
-  margin-bottom: 0;
+
   height: 50px;
   border: 3px solid white;
 }
@@ -161,16 +162,19 @@ h1 {
 .resultDiv {
   margin: 20px;
   min-height: 150px;
+  display: grid;
+  place-items: start;
 }
 
 #resultPoints {
-  font-size: 15rem;
+  font-size: 13rem;
   flex-shrink: 1;
+  color: #222222;
 }
 
 #resultWindow {
   display: grid;
-  grid-template-rows: 1fr 5fr 1fr;
-  overflow: auto;
+  grid-template-rows: 2fr 5fr 1fr 1fr;
+
   flex-shrink: 1;
 }
