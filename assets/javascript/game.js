@@ -39,33 +39,41 @@ $(document).ready(function() {
     resultPoints = 0;
 
     bannerText.html("CLICK DIAMONDS TO POINT UP!");
-    $("button-red").attr("data-points", dRedPoints);
-    $("button-blue").attr("data-points", dBluePoints);
-    $("button-yellow").attr("data-points", dYellowPoints);
-    $("button-green").attr("data-points", dGreenPoints);
+    $("#button-red").attr("data-points", dRedPoints);
+    $("#button-blue").attr("data-points", dBluePoints);
+    $("#button-yellow").attr("data-points", dYellowPoints);
+    $("#button-green").attr("data-points", dGreenPoints);
   }
 
   $(".btn").click(function() {
+    bannerText.html("CLICK DIAMONDS TO POINT UP!");
     resultPoints += parseInt($(this).attr("data-points"));
     $("#resultPoints").html(resultPoints);
-    //if statement for individual button points
-  });
-  console.log($("#button-red").attr("data-points"));
-  console.log("haha");
+    $("#resultPoints").addClass("heartBeat");
+    //tried delay but not work//
+    // $("#resultPoints").delay(1000).removeClass("heartBeat");
 
-  if (resultPoints === targetPoints) {
-    bannerText.html("Well done with the diamonds!");
-    wins++;
-    $("#wins").html(wins);
-    gameStart();
-  } else if (resultPoints > targetPoints) {
-    bannerText.html("TRY AGAIN PLEASE!");
-    losses--;
-    $("#losses").html(losses);
-    gameStart();
-  }
+    //if statement for individual button points
+
+    if (resultPoints === targetPoints) {
+      wins++;
+      $("#wins").html(wins);
+      gameStart();
+      bannerText.html("Well done with the diamonds!");
+    } else if (resultPoints > targetPoints) {
+      losses++;
+      $("#losses").html(losses);
+      gameStart();
+      bannerText.html("TRY AGAIN PLEASE!");
+    }
+  });
+
+  // $(".btn").mouseUp(function() {
+  // $("#resultPoints").addClass("heartBeat");
+  // });
+  // $(".btn").mouseDown(function() {
+  //   $("#resultPoints";
+  //     .removeClass("heartBeat")};
 
   gameStart();
 });
-
-console.log("t3");
