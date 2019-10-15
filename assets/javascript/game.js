@@ -1,17 +1,3 @@
-// #bannerText
-// #targetPoints
-// #button-red
-// #button-blue
-// #button-yellow
-// #button-green
-// #resultPoints
-// .bg-danger
-// .bg-primary
-// .bg-yellow
-// .bg-green
-// #wins
-// #losses
-
 //define all the relevant variables//
 $(document).ready(function() {
   var targetPoints = 0;
@@ -28,13 +14,16 @@ $(document).ready(function() {
   var greenTotal = 0;
   var percentageRed = 0;
 
+  //define banner text
   var bannerText = $("#bannerText");
   bannerText.html();
 
+  //set up function for calculating progressive bar expreesion
   function turnIntoPercentage(figure) {
     return (figure * 100).toFixed(2) + "%";
   }
 
+  //initial state of progress bar
   function resetProgressBar() {
     redTotal = 0;
     blueTotal = 0;
@@ -46,11 +35,15 @@ $(document).ready(function() {
     $(".progress div:eq(3)").css("width", 0);
     $(".progress").html();
   }
-  console.log("t1");
+
   //declare function on game start status//
   function gameStart() {
     $("#bannerText, #targetPoints,#resultPoints").empty();
+
+    //generate random number to guess
     targetPoints = 19 + Math.floor(Math.random() * 102);
+
+    //display target points
     $("#targetPoints").html(targetPoints);
     dRedPoints = 1 + Math.floor(Math.random() * 12);
     dBluePoints = 1 + Math.floor(Math.random() * 12);
@@ -62,6 +55,7 @@ $(document).ready(function() {
     yellowTotal = 0;
     greenTotal = 0;
 
+    //function for refreshing each round's dimaond randomised points
     resetProgressBar();
     bannerText.html("CLICK DIAMONDS TO POINT UP!");
     $("#button-red").attr("data-points", dRedPoints);
@@ -70,6 +64,7 @@ $(document).ready(function() {
     $("#button-green").attr("data-points", dGreenPoints);
   }
 
+  //function for calculating accumulated points after each click on particular diamonds
   $("#button-red").click(function() {
     redTotal += parseInt(dRedPoints);
     console.log(redTotal);
@@ -77,9 +72,6 @@ $(document).ready(function() {
 
     $(".progress div:eq(0)").css("width", turnIntoPercentage(percentageRed));
     $(".progress").html();
-    if (targetPoints - redTotal - blueTotal - yellowTotal - greenTotal < 0) {
-      resetProgressBar();
-    }
   });
 
   $("#button-blue").click(function() {
@@ -89,9 +81,6 @@ $(document).ready(function() {
 
     $(".progress div:eq(1)").css("width", turnIntoPercentage(percentageBlue));
     $(".progress").html();
-    if (targetPoints - redTotal - blueTotal - yellowTotal - greenTotal < 0) {
-      resetProgressBar();
-    }
   });
 
   $("#button-yellow").click(function() {
@@ -101,9 +90,6 @@ $(document).ready(function() {
 
     $(".progress div:eq(2)").css("width", turnIntoPercentage(percentageYellow));
     $(".progress").html();
-    if (targetPoints - redTotal - blueTotal - yellowTotal - greenTotal < 0) {
-      resetProgressBar();
-    }
   });
 
   $("#button-green").click(function() {
@@ -113,30 +99,19 @@ $(document).ready(function() {
 
     $(".progress div:eq(3)").css("width", turnIntoPercentage(percentageGreen));
     $(".progress").html();
-    if (
-      dRedPoints >
-      targetPoints - redTotal - blueTotal - yellowTotal - greenTotal
-    ) {
-      resetProgressBar();
-    }
   });
 
   $(".btn").click(function() {
     bannerText.html("CLICK DIAMONDS TO POINT UP!");
     resultPoints += parseInt($(this).attr("data-points"));
-
+    //display result points with added css effects (via class animation)
     $("#resultPoints").html(resultPoints);
     $("#resultPoints").addClass("heartBeat");
     setTimeout(function() {
       $("#resultPoints").removeClass("heartBeat");
     }, 900);
-    // var deBounce;
-    // function deBounce() {
-    //   heartBeat = setTimeout($("#resultPoints").addClass("heartBeat"), 1000);
 
-    //tried delay but not work//
-    // $("#resultPoints").delay(1000).removeClass("heartBeat");
-
+    //if statement to decide game progress and display game stats when game finish
     if (resultPoints === targetPoints) {
       wins++;
       $("#wins").html(wins);
@@ -152,12 +127,6 @@ $(document).ready(function() {
     }
   });
 
-  // $(".btn").mouseUp(function() {
-  // $("#resultPoints").addClass("heartBeat");
-  // });
-  // $(".btn").mouseDown(function() {
-  //   $("#resultPoints";
-  //     .removeClass("heartBeat")};
-
+  //initialise game
   gameStart();
 });
